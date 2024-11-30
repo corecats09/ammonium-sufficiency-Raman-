@@ -115,28 +115,33 @@ hold on
 end
 ```
 ![meanSpectrum_log_wt_glnb_glnk](figures/pca3.jpg)
-
-# Spectral differences between ammonium concentration are distinguishable;
-# Spectra are similar between wt, glnb, glnk, in different ammonium concentrations;
-
 ```matlab
+% Spectral differences between ammonium concentration are distinguishable;
+% Spectra are similar between wt, glnb, glnk, in different ammonium concentrations;
+
+
 subplot (411)
 plot (x,mean(log_wt,2))
 legend ('N sufficient')
+
 subplot (412)
 plot (x,mean(ro_wt,2))
 legend ('N running out')
+
 subplot (413)
 plot (x,mean(sta_wt,2))
 legend ('N starvation')
+
 subplot (414)
 plot (x,mean(upsft_wt,2))
 legend ('N up-shift')
 xlabel('wavenumber/cm^{-1}')
 ylabel('intensity/counts')
+
+% comparison on spectrum in different ammonium concentrations, wt;
 ```
 ![meanSpectrum_log_wt_glnb_glnk](figures/mean5.jpg)
-## comparison on spectrum in different ammonium concentrations, wt;
+
 
 
 

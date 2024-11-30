@@ -175,10 +175,44 @@ bar(param_log_mean)
 xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "fbp" "glu" "lipid" "nad"});
 legend ('wt','glnb','glnk')
 ylabel('intensity/counts')
+% note: small values are not comparable
 ```
 ![meanComponents_log_wt_glnb_glnk](figures/bar1.jpg)
 
 ```matlab
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - mean(ro_wt,2)));
+subject to
+A>= 0;
+cvx_end
+param_ro_mean (:,1) = A;
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - mean(ro_glnb,2)));
+subject to
+A>= 0;
+cvx_end
+param_ro_mean (:,2) = A;
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - mean(ro_glnk,2)));
+subject to
+A>= 0;
+cvx_end
+param_ro_mean (:,3) = A;
+bar(param_ro_mean)
+xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "fbp" "glu" "lipid" "nad"});
+legend ('wt','glnb','glnk')
+ylabel('intensity/counts')
+title ('N run-out')
+% note: small values are not comparable
+```
+![meanComponents_ro_wt_glnb_glnk](figures/bar2.jpg)
+
 
 
 

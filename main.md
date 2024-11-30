@@ -171,12 +171,31 @@ subject to
 A>= 0;
 cvx_end
 param_log_mean (:,3) = A;
+
+subplot (311)
+plot (x,mean(log_wt,2))
+hold on
+plot (x,tbl_ele_adj*param_log_mean(:,1))
+legend ('cell','fitting')
+ylabel('wt')
+subplot (312)
+plot (x,mean(log_glnb,2))
+hold on
+plot (x,tbl_ele_adj*param_log_mean(:,2))
+ylabel('glnb')
+subplot (313)
+plot (x,mean(log_glnk,2))
+hold on
+plot (x,tbl_ele_adj*param_log_mean(:,3))
+ylabel('glnk')
+
 bar(param_log_mean)
 xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "fbp" "glu" "lipid" "nad"});
 legend ('wt','glnb','glnk')
 ylabel('intensity/counts')
 % note: small values are not comparable
 ```
+![fitting log wt glnb glnk] (figures/fit1.jpg).
 ![meanComponents_log_wt_glnb_glnk](figures/bar1.jpg)
 
 ```matlab

@@ -249,10 +249,13 @@ title ('N starvation')
 
 ```matlab
 % glcose increase in nitrogen insufficiency; (carbon accumulation)
-% gsh, anp, asp not detected in gutnick medium with ammonium chloride than that in LB;
-% wt glnb glnk component changes not significant;
+% gsh, anp not detected in gutnick medium with ammonium chloride than that in LB;
+% no signficant changes in wt glnb glnk components;
+% asp increase in nitrogen starvation
 ```
 ```matlab
+% individual spectrum deconvolution
+
 
 
 

@@ -195,7 +195,7 @@ legend ('wt','glnb','glnk')
 ylabel('intensity/counts')
 % note: small values are not comparable
 ```
-![fitting log wt glnb glnk] (figures/fit1.jpg).
+![fitting log wt glnb glnk](figures/fit1.jpg).
 ![meanComponents_log_wt_glnb_glnk](figures/bar1.jpg)
 
 ```matlab
@@ -230,6 +230,7 @@ ylabel('intensity/counts')
 title ('N run-out')
 % note: small values are not comparable
 ```
+![fitting log wt glnb glnk](figures/fit2.jpg).
 ![meanComponents_ro_wt_glnb_glnk](figures/bar2.jpg)
 
 ```matlab
@@ -264,7 +265,63 @@ ylabel('intensity/counts')
 title ('N starvation')
 % note: small values are not comparable
 ```
+![fitting log wt glnb glnk](figures/fit3.jpg).
 ![meanComponents_sta_wt_glnb_glnk](figures/bar3.jpg)
+
+```matlab
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - mean(upsft_wt,2)));
+subject to
+A>= 0;
+cvx_end
+param_upsft_mean (:,1) = A;
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - mean(upsft_glnb,2)));
+subject to
+A>= 0;
+cvx_end
+param_upsft_mean (:,2) = A;
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - mean(upsft_glnk,2)));
+subject to
+A>= 0;
+cvx_end
+
+subplot (311)
+plot (x,mean(upsft_wt,2))
+hold on
+plot (x,tbl_ele_adj*param_upsft_mean(:,1))
+legend ('cell','fitting')
+ylabel('wt'); title('N upshift')
+subplot (312)
+plot (x,mean(upsft_glnb,2))
+hold on
+plot (x,tbl_ele_adj*param_upsft_mean(:,2))
+ylabel('glnb')
+subplot (313)
+plot (x,mean(upsft_glnk,2))
+hold on
+plot (x,tbl_ele_adj*param_upsft_mean(:,3))
+ylabel('glnk')
+
+param_upsft_mean (:,3) = A;
+bar(param_upsft_mean)
+xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "fbp" "glu" "lipid" "nad"});
+legend ('wt','glnb','glnk')
+ylabel('intensity/counts')
+title ('N upshift')
+% note: small values are not comparable
+```
+![fitting log wt glnb glnk](figures/fit4.jpg).
+![meanComponents_sta_wt_glnb_glnk](figures/bar4.jpg)
+
+
 
 ```matlab
 % glcose increase in nitrogen insufficiency; (carbon accumulation)

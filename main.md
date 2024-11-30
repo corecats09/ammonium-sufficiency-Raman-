@@ -243,8 +243,16 @@ xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "
 legend ('wt','glnb','glnk')
 ylabel('intensity/counts')
 title ('N starvation')
+% note: small values are not comparable
 ```
 ![meanComponents_sta_wt_glnb_glnk](figures/bar3.jpg)
+
+```matlab
+% glcose increase in nitrogen insufficiency; (carbon accumulation)
+% gsh, anp, asp not detected in gutnick medium with ammonium chloride than that in LB;
+% wt glnb glnk component changes not significant;
+```
+```matlab
 
 
 

@@ -243,8 +243,10 @@ xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "
 legend ('wt','glnb','glnk')
 ylabel('intensity/counts')
 title ('N starvation')
-
+```
 ![meanComponents_sta_wt_glnb_glnk](figures/bar3.jpg)
+
+
 
 
 

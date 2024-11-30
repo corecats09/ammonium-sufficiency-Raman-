@@ -213,6 +213,39 @@ title ('N run-out')
 ```
 ![meanComponents_ro_wt_glnb_glnk](figures/bar2.jpg)
 
+```matlab
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - mean(sta_wt,2)));
+subject to
+A>= 0;
+cvx_end
+param_sta_mean (:,1) = A;
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - mean(sta_glnb,2)));
+subject to
+A>= 0;
+cvx_end
+param_sta_mean (:,2) = A;
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - mean(sta_glnk,2)));
+subject to
+A>= 0;
+cvx_end
+param_sta_mean (:,3) = A;
+bar(param_sta_mean)
+xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "fbp" "glu" "lipid" "nad"});
+legend ('wt','glnb','glnk')
+ylabel('intensity/counts')
+title ('N starvation')
+
+![meanComponents_sta_wt_glnb_glnk](figures/bar3.jpg)
+
 
 
 

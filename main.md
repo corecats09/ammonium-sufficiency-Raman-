@@ -41,7 +41,19 @@ title('in the condition of ammonium starvation')
 ```
 ![meanSpectrum_log_wt_glnb_glnk](figures/mean3.jpg)
 
-
+```matlab
+plot (x,mean(upsft_wt,2))
+hold on
+plot (x,mean(upsft_glnb,2))
+plot (x,mean(upsft_glnk,2))
+xlabel('wavenumber/cm^{-1}')
+ylabel('intensity/counts')
+legend('wt','\Deltaglnb','\Deltaglnk')
+legend('wt(85)','\Deltaglnb(80)','\Deltaglnk(84)')
+% mean spectrum of the samples(number),
+title('in the condition of ammonium up-shift')
+```
+![meanSpectrum_log_wt_glnb_glnk](figures/mean4.jpg)
 
 
 

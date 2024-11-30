@@ -55,6 +55,51 @@ title('in the condition of ammonium up-shift')
 ```
 ![meanSpectrum_log_wt_glnb_glnk](figures/mean4.jpg)
 
+```matlab
+datasetall = [log_wt,log_glnb,log_glnk,ro_wt,ro_glnb,ro_glnk,sta_wt,sta_glnb,sta_glnk,upsft_wt,upsft_glnb,upsft_glnk];
+quantiles = [];
+numbers = [];
+numbers(1) = width(log_wt);
+numbers(2) = width(log_glnb);
+numbers(3) = width(log_glnk);
+numbers(4) = width(ro_wt);
+numbers(5) = width(ro_glnb);
+numbers(6) = width(ro_glnk);
+numbers(7) = width(sta_wt);
+numbers(8) = width(sta_glnb);
+numbers(9) = width(sta_glnk);
+numbers(10) = width(upsft_wt);
+numbers(11) = width(upsft_glnb);
+numbers(12) = width(upsft_glnk);
+quantiles(1) =0;
+
+for n = 1:12
+quantiles(n+1) = sum(numbers(1:n));
+end
+[coeff,score,latent] = pca(datasetall');
+
+for n = 1:3
+scatter3 (score(quantiles(n)+1:quantiles(n+1),1),score(quantiles(n)+1:quantiles(n+1),2),score(quantiles(n)+1:quantiles(n+1),3),12,'o','filled')
+hold on
+end
+```
+
+```matlab
+for n = 4:6
+scatter3 (score(quantiles(n)+1:quantiles(n+1),1),score(quantiles(n)+1:quantiles(n+1),2),score(quantiles(n)+1:quantiles(n+1),3),12,'^')
+hold on
+end
+
+for n = 7:9
+scatter3 (score(quantiles(n)+1:quantiles(n+1),1),score(quantiles(n)+1:quantiles(n+1),2),score(quantiles(n)+1:quantiles(n+1),3),12,'x')
+hold on
+end
+
+for n = 10:12
+scatter3 (score(quantiles(n)+1:quantiles(n+1),1),score(quantiles(n)+1:quantiles(n+1),2),score(quantiles(n)+1:quantiles(n+1),3),12,'square','filled')
+hold on
+end
+
 
 
 

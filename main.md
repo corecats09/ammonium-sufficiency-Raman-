@@ -25,7 +25,7 @@ legend('wt(76)','\Deltaglnb(88)','\Deltaglnk(88)')
 % mean spectrum of the samples(number),
 title('in the condition of ammonium running out')
 ```
-![meanSpectrum_log_wt_glnb_glnk](figures/mean2.jpg)
+![meanSpectrum_runout_wt_glnb_glnk](figures/mean2.jpg)
 ```matlab
 plot (x,mean(sta_wt,2))
 hold on
@@ -39,7 +39,7 @@ legend('wt(90)','\Deltaglnb(71)','\Deltaglnk(85)')
 title('in the condition of ammonium starvation')
 
 ```
-![meanSpectrum_log_wt_glnb_glnk](figures/mean3.jpg)
+![meanSpectrum_sta_wt_glnb_glnk](figures/mean3.jpg)
 
 ```matlab
 plot (x,mean(upsft_wt,2))
@@ -53,7 +53,7 @@ legend('wt(85)','\Deltaglnb(80)','\Deltaglnk(84)')
 % mean spectrum of the samples(number),
 title('in the condition of ammonium up-shift')
 ```
-![meanSpectrum_log_wt_glnb_glnk](figures/mean4.jpg)
+![meanSpectrum_upsft_wt_glnb_glnk](figures/mean4.jpg)
 
 ```matlab
 datasetall = [log_wt,log_glnb,log_glnk,ro_wt,ro_glnb,ro_glnk,sta_wt,sta_glnb,sta_glnk,upsft_wt,upsft_glnb,upsft_glnk];
@@ -96,7 +96,7 @@ zlabel('pc1 0.01')
 legend ('log wt','log glnb','log glnk','ro wt','ro glnb','ro glnk')
 
 ```
-![meanSpectrum_log_wt_glnb_glnk](figures/pca1.jpg)
+![pca_log_runout](figures/pca1.jpg)
 
 ```matlab
 
@@ -105,7 +105,7 @@ scatter3 (score(quantiles(n)+1:quantiles(n+1),1),score(quantiles(n)+1:quantiles(
 hold on
 end
 ```
-![meanSpectrum_log_wt_glnb_glnk](figures/pca2.jpg)
+![pca_log_runout sta](figures/pca2.jpg)
 
 ```matlab
 
@@ -114,7 +114,7 @@ scatter3 (score(quantiles(n)+1:quantiles(n+1),1),score(quantiles(n)+1:quantiles(
 hold on
 end
 ```
-![meanSpectrum_log_wt_glnb_glnk](figures/pca3.jpg)
+![pca_log_runout sta upsft](figures/pca3.jpg)
 ```matlab
 % Spectral differences between ammonium concentration are distinguishable;
 % Spectra are similar between wt, glnb, glnk, in different ammonium concentrations;
@@ -141,6 +141,48 @@ ylabel('intensity/counts')
 % comparison on spectrum in different ammonium concentrations, wt;
 ```
 ![meanSpectrum_log_wt_glnb_glnk](figures/mean5.jpg)
+
+```matlab
+% deconvolution and comparison;
+% note the deconvolution result is based on 15 components, without keta-glutarate and 6-phosphateglucose;
+
+% on mean spectrum:
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - mean(log_wt,2)));
+subject to
+A>= 0;
+cvx_end
+param_log_mean (:,1) = A;
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - mean(log_glnb,2)));
+subject to
+A>= 0;
+cvx_end
+param_log_mean (:,2) = A;
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - mean(log_glnk,2)));
+subject to
+A>= 0;
+cvx_end
+param_log_mean (:,3) = A;
+bar(param_log_mean)
+xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "fbp" "glu" "lipid" "nad"});
+legend ('wt','glnb','glnk')
+ylabel('intensity/counts')
+```
+![meanComponents_log_wt_glnb_glnk](figures/bar1.jpg)
+
+```matlab
+
+
+
+
 
 
 

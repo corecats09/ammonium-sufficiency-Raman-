@@ -82,23 +82,41 @@ for n = 1:3
 scatter3 (score(quantiles(n)+1:quantiles(n+1),1),score(quantiles(n)+1:quantiles(n+1),2),score(quantiles(n)+1:quantiles(n+1),3),12,'o','filled')
 hold on
 end
-```
 
-```matlab
 for n = 4:6
 scatter3 (score(quantiles(n)+1:quantiles(n+1),1),score(quantiles(n)+1:quantiles(n+1),2),score(quantiles(n)+1:quantiles(n+1),3),12,'^')
 hold on
 end
+pc1 = latent(1)./sum(latent); % pc1 = 85.3%
+pc2 = latent(2)./sum(latent); % pc2 = 10.8%
+pc3 = latent(3)./sum(latent); % pc3 = 1.1%
+xlabel('pc1 85.3')
+ylabel('pc1 10.7')
+zlabel('pc1 0.01')
+legend ('log wt','log glnb','log glnk','ro wt','ro glnb','ro glnk')
+
+```
+![meanSpectrum_log_wt_glnb_glnk](figures/pca1.jpg)
+
+```matlab
 
 for n = 7:9
 scatter3 (score(quantiles(n)+1:quantiles(n+1),1),score(quantiles(n)+1:quantiles(n+1),2),score(quantiles(n)+1:quantiles(n+1),3),12,'x')
 hold on
 end
+```
+![meanSpectrum_log_wt_glnb_glnk](figures/pca2.jpg)
+
+```matlab
 
 for n = 10:12
-scatter3 (score(quantiles(n)+1:quantiles(n+1),1),score(quantiles(n)+1:quantiles(n+1),2),score(quantiles(n)+1:quantiles(n+1),3),12,'square','filled')
+scatter3 (score(quantiles(n)+1:quantiles(n+1),1),score(quantiles(n)+1:quantiles(n+1),2),score(quantiles(n)+1:quantiles(n+1),3),12,'square')
 hold on
 end
+```
+![meanSpectrum_log_wt_glnb_glnk](figures/pca3.jpg)
+
+
 
 
 

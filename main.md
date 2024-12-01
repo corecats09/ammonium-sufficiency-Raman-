@@ -1145,6 +1145,14 @@ legend ('glnk')
 ```
 ![corr upsft glnk](figures/corr12.jpg)
 
+```matlab
+% prt to rna, asp, glc levels shows good correlation in all four ammonium concentrations;
+% dna to those components not correlated;
+% wt glnb glnk behaviour similar;
+% results may change by adding more components;
+
+
+
 
 
 

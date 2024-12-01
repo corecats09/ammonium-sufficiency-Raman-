@@ -199,6 +199,79 @@ ylabel('intensity/counts')
 ![meanComponents_log_wt_glnb_glnk](figures/bar1.jpg)
 
 ```matlab
+y_scale = 2000;
+perc_log_wt = tbl_ele_adj.*param_log_mean(:,1)';
+perc_log_wt(:,16) = abs(tbl_ele_adj*param_log_mean(:,1)-mean(log_wt,2));
+perc_log_wt = perc_log_wt([peak_position],:);
+
+for n = 1:10
+perc_log_wt(n,:) = perc_log_wt(n,:)./sum(perc_log_wt(n,:));
+end
+
+perc_log_wt = perc_log_wt'.*y_scale;
+
+subplot (311)
+plot (x,mean(log_wt,2))
+hold on
+a = bar (x(peak_position),perc_log_wt,'stacked');
+colors = hot(16);
+for i = 1:length(a)
+a(i).FaceColor = colors(i, :);
+a(i).FaceAlpha = 0.3;
+end
+ylabel('wt')
+legend ('', 'prt', 'rna' ,'gsh' ,'dna' ,'anp' ,'asp' ,'gln' ,'unp' ,'gnp' ,'glc', 'val' ,'fbp' ,'glu' ,'lipid', 'nad','error')
+
+perc_log_glnb = tbl_ele_adj.*param_log_mean(:,2)';
+perc_log_glnb(:,16) = abs(tbl_ele_adj*param_log_mean(:,2)-mean(log_glnb,2));
+perc_log_glnb = perc_log_glnb([peak_position],:);
+for n = 1:10
+perc_log_glnb(n,:) = perc_log_glnb(n,:)./sum(perc_log_glnb(n,:));
+end
+perc_log_glnb = perc_log_glnb'.*y_scale;
+subplot (312)
+plot (x,mean(log_glnb,2))
+hold on
+a = bar (x(peak_position),perc_log_glnb,'stacked');
+colors = hot(16);
+for i = 1:length(a)
+a(i).FaceColor = colors(i, :);
+a(i).FaceAlpha = 0.3;
+end
+ylabel('glnb')
+
+perc_log_glnk = tbl_ele_adj.*param_log_mean(:,3)';
+perc_log_glnk(:,16) = abs(tbl_ele_adj*param_log_mean(:,3)-mean(log_glnk,2));
+perc_log_glnk = perc_log_glnk([peak_position],:);
+
+for n = 1:10
+perc_log_glnk(n,:) = perc_log_glnk(n,:)./sum(perc_log_glnk(n,:));
+end
+
+perc_log_glnk = perc_log_glnk'.*y_scale;
+
+subplot (313)
+plot (x,mean(log_glnk,2))
+hold on
+a = bar (x(peak_position),perc_log_glnk,'stacked');
+colors = hot(16);
+for i = 1:length(a)
+a(i).FaceColor = colors(i, :);
+a(i).FaceAlpha = 0.3;
+end
+ylabel('glnk')
+xlabel ('wavenumber/cm^{-1}')
+```
+![peakComponents_log_wt_glnb_glnk](figures/perc1.jpg)
+
+
+
+
+
+
+
+
+```matlab
 A = [];
 cvx_begin
 variable A(15,1)
@@ -264,6 +337,7 @@ legend ('wt','glnb','glnk')
 ylabel('intensity/counts')
 title ('N starvation')
 % note: small values are not comparable
+% fitting not good; estimation may exist large error;
 ```
 ![fitting log wt glnb glnk](figures/fit3.jpg).
 ![meanComponents_sta_wt_glnb_glnk](figures/bar3.jpg)
@@ -329,6 +403,8 @@ title ('N upshift')
 % no signficant changes in wt glnb glnk components;
 % asp increase in nitrogen starvation
 ```
+
+
 ```matlab
 % individual spectrum deconvolution
 

@@ -104,9 +104,9 @@ xlabel('pc1 85.3')
 ylabel('pc1 10.7')
 zlabel('pc1 0.01')
 legend ('log wt','log glnb','log glnk','ro wt','ro glnb','ro glnk')
-
+% pca of log; runout;
 ```
-![pca_log_runout](figures/pca1.jpg)
+![pca_N replete_runout](figures/pca1.jpg)
 
 ```matlab
 
@@ -114,6 +114,7 @@ for n = 7:9
 scatter3 (score(quantiles(n)+1:quantiles(n+1),1),score(quantiles(n)+1:quantiles(n+1),2),score(quantiles(n)+1:quantiles(n+1),3),12,'x')
 hold on
 end
+% pca of N replete; runout; starvation;
 ```
 ![pca_log_runout sta](figures/pca2.jpg)
 
@@ -123,12 +124,12 @@ for n = 10:12
 scatter3 (score(quantiles(n)+1:quantiles(n+1),1),score(quantiles(n)+1:quantiles(n+1),2),score(quantiles(n)+1:quantiles(n+1),3),12,'square')
 hold on
 end
+% pca of N replete; runout; starvation; up-shift;
+% cells in different ammonium concentrations are clustered;
+% wt glnb glnk is not distinguishable in different ammonium concentrations;
 ```
 ![pca_log_runout sta upsft](figures/pca3.jpg)
 ```matlab
-% Spectral differences between ammonium concentration are distinguishable;
-% Spectra are similar between wt, glnb, glnk, in different ammonium concentrations;
-
 
 subplot (411)
 plot (x,mean(log_wt,2))

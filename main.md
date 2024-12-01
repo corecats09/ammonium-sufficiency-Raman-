@@ -3,7 +3,7 @@
 
 % overall:
 % the analysis is by: mean spectrum (from line 13) > pca (from line 69) > violin plot (from line 600) >
-correlation (from line 790) > distribution (line 1164);
+% correlation (from line 790) > distribution (line 1164);
 % prt rna dna asp glc is the top 5 components;
 % glu (glutamate), gln (glutamine) is not able to analysed subjected to parameter error in least square simulation;
 % results based on 15 components;

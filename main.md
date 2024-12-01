@@ -2,11 +2,12 @@
 ```matlab
 
 % overall:
-% the analysis is by: mean spectrum (from line 11) > pca (from line 67) > violin plot (from line 598) > correlation (from line 788) > distribution (line 1170);
+% the analysis is by: mean spectrum (from line 13) > pca (from line 69) > violin plot (from line 600) > correlation (from line 790) > distribution (line 1164);
 % prt rna dna asp glc is the top 5 components;
 % glu (glutamate), gln (glutamine) is not able to analysed subjected to parameter error in least square simulation;
 % results based on 15 components;
 % wt glnb glnk behave similar;
+% dataset and figures stored in the branch files;
 
 
 plot (x,mean(log_wt,2))
@@ -1155,10 +1156,19 @@ legend ('glnk')
 ![corr upsft glnk](figures/corr12.jpg)
 
 ```matlab
-% prt to rna, asp, glc levels shows good correlation in all four ammonium concentrations;
+% prt to rna, asp, glc levels shows good correlation in different ammonium concentrations;
 % dna to those components not correlated;
-% wt glnb glnk behaviour similar;
+% wt glnb glnk behave similar;
 % results may change by adding more components;
+```
+
+```matlab
+% dna rna prt distribution:
+% N replete:
+
+
+
+
 
 
 

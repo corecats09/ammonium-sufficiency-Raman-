@@ -582,7 +582,206 @@ title ('N up shift')
 
 
 ```matlab
-% individual spectrum deconvolution
+% individual spectrum deconvolution;
+
+% component statistical:
+
+subplot (311)
+for n = 1: width(log_wt)
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - log_wt(:,n)))
+subject to
+A >= 0;
+cvx_end
+param_log_wt(:,n) = A;
+end
+violinplot (param_log_wt')
+xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "fbp" "glu" "lipid" "nad"});
+ylabel ('wt')
+title ('N replete')
+
+subplot (312)
+for n = 1: width(log_glnb)
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - log_glnb(:,n)))
+subject to
+A >= 0;
+cvx_end
+param_log_glnb(:,n) = A;
+end
+violinplot (param_log_glnb')
+xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "fbp" "glu" "lipid" "nad"});
+ylabel ('glnb')
+
+subplot (313)
+for n = 1: width(log_glnk)
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - log_glnk(:,n)))
+subject to
+A >= 0;
+cvx_end
+param_log_glnk(:,n) = A;
+end
+violinplot (param_log_glnb')
+xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "fbp" "glu" "lipid" "nad"});
+ylabel ('glnk')
+```
+![violin wt glnb glnk](figures/violin1)
+
+```matlab
+
+subplot (311)
+for n = 1: width(ro_wt)
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - ro_wt(:,n)))
+subject to
+A >= 0;
+cvx_end
+param_ro_wt(:,n) = A;
+end
+violinplot (param_ro_wt')
+xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "fbp" "glu" "lipid" "nad"});
+ylabel ('wt')
+title ('N run-out')
+subplot (312)
+for n = 1: width(ro_glnb)
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - ro_glnb(:,n)))
+subject to
+A >= 0;
+cvx_end
+param_ro_glnb(:,n) = A;
+end
+violinplot (param_ro_glnb')
+xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "fbp" "glu" "lipid" "nad"});
+ylabel ('glnb')
+subplot (313)
+for n = 1: width(ro_glnk)
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - ro_glnk(:,n)))
+subject to
+A >= 0;
+cvx_end
+param_ro_glnk(:,n) = A;
+end
+violinplot (param_ro_glnb')
+xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "fbp" "glu" "lipid" "nad"});
+ylabel ('glnk')
+```
+![violin wt glnb glnk](figures/violin2)
+
+```matlab
+subplot (311)
+for n = 1: width(sta_wt)
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - sta_wt(:,n)))
+subject to
+A >= 0;
+cvx_end
+param_sta_wt(:,n) = A;
+end
+violinplot (param_sta_wt')
+xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "fbp" "glu" "lipid" "nad"});
+ylabel ('wt')
+title ('N starved')
+subplot (312)
+for n = 1: width(sta_glnb)
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - sta_glnb(:,n)))
+subject to
+A >= 0;
+cvx_end
+param_sta_glnb(:,n) = A;
+end
+violinplot (param_sta_glnb')
+xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "fbp" "glu" "lipid" "nad"});
+ylabel ('glnb')
+subplot (313)
+for n = 1: width(sta_glnk)
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - sta_glnk(:,n)))
+subject to
+A >= 0;
+cvx_end
+param_sta_glnk(:,n) = A;
+end
+violinplot (param_sta_glnb')
+xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "fbp" "glu" "lipid" "nad"});
+ylabel ('glnk')
+```
+![violin wt glnb glnk](figures/violin3)
+
+```matlab
+subplot (311)
+for n = 1: width(upsft_wt)
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - upsft_wt(:,n)))
+subject to
+A >= 0;
+cvx_end
+param_upsft_wt(:,n) = A;
+end
+violinplot (param_upsft_wt')
+xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "fbp" "glu" "lipid" "nad"});
+ylabel ('wt')
+title ('N up-shift')
+subplot (312)
+for n = 1: width(upsft_glnb)
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - upsft_glnb(:,n)))
+subject to
+A >= 0;
+cvx_end
+param_upsft_glnb(:,n) = A;
+end
+violinplot (param_upsft_glnb')
+xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "fbp" "glu" "lipid" "nad"});
+ylabel ('glnb')
+subplot (313)
+for n = 1: width(upsft_glnk)
+A = [];
+cvx_begin
+variable A(15,1)
+minimize (norm(tbl_ele_adj*A - upsft_glnk(:,n)))
+subject to
+A >= 0;
+cvx_end
+param_upsft_glnk(:,n) = A;
+end
+violinplot (param_upsft_glnb')
+xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "fbp" "glu" "lipid" "nad"});
+ylabel ('glnk')
+```
+![violin wt glnb glnk](figures/violin4)
+
+
+
+
+
+
+
 
 
 

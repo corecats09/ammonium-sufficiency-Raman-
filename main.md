@@ -1,5 +1,14 @@
 
 ```matlab
+
+% overall:
+% the analysis is by: mean spectrum (from line 11) > pca (from line 67) > violin plot (from line 598) > correlation (from line 788) > distribution (line 1170);
+% prt rna dna asp glc is the top 5 components;
+% glu (glutamate), gln (glutamine) is not able to analysed subjected to parameter error in least square simulation;
+% results based on 15 components;
+% wt glnb glnk behave similar;
+
+
 plot (x,mean(log_wt,2))
 hold on
 plot (x,mean(log_glnb,2))

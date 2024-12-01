@@ -632,7 +632,7 @@ violinplot (param_log_glnb')
 xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "fbp" "glu" "lipid" "nad"});
 ylabel ('glnk')
 ```
-![violin wt glnb glnk](figures/violin1)
+![violin log wt glnb glnk](figures/violin1.jpg)
 
 ```matlab
 
@@ -680,7 +680,7 @@ violinplot (param_ro_glnb')
 xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "fbp" "glu" "lipid" "nad"});
 ylabel ('glnk')
 ```
-![violin wt glnb glnk](figures/violin2)
+![violin ro glnb glnk](figures/violin2.jpg)
 
 ```matlab
 subplot (311)
@@ -727,7 +727,7 @@ violinplot (param_sta_glnb')
 xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "fbp" "glu" "lipid" "nad"});
 ylabel ('glnk')
 ```
-![violin wt glnb glnk](figures/violin3)
+![violin sta glnb glnk](figures/violin3.jpg)
 
 ```matlab
 subplot (311)
@@ -774,7 +774,109 @@ violinplot (param_upsft_glnb')
 xticklabels({"prt" "rna" "gsh" "dna" "anp" "asp" "gln" "unp" "gnp" "glc" "val" "fbp" "glu" "lipid" "nad"});
 ylabel ('glnk')
 ```
-![violin wt glnb glnk](figures/violin4)
+![violin upsft wt glnb glnk](figures/violin4.jpg)
+
+```matlab
+% top 5 components: prt; rna; dna; asp; glc;
+% the corelation and coefficient of the components 'prt':
+
+row = [1,2,4,6,10];
+coef_log_wt = corrcoef (param_log_wt(row,:)');
+
+subplot (141)
+scatter (param_log_wt(1,:),param_log_wt(2,:))
+text (1,1,['\rho  ' num2str(coef_log_wt(1,2))])
+xlabel ('prt')
+ylabel ('rna')
+
+subplot (142)
+scatter (param_log_wt(1,:),param_log_wt(4,:))
+text (1,1,['\rho  ' num2str(coef_log_wt(1,3))])
+xlabel ('prt')
+ylabel ('dna')
+
+subplot (143)
+scatter (param_log_wt(1,:),param_log_wt(6,:))
+text (1,1,['\rho  ' num2str(coef_log_wt(1,4))])
+xlabel ('prt')
+ylabel ('asp')
+
+subplot (144)
+scatter (param_log_wt(1,:),param_log_wt(10,:))
+text (1,1,['\rho  ' num2str(coef_log_wt(1,5))])
+xlabel ('prt')
+ylabel ('glc')
+```
+![corr log wt](figures/corr1.jpg)
+
+```matlab
+coef_log_glnb = corrcoef (param_log_glnb(row,:)');
+
+subplot (141)
+scatter (param_log_glnb(1,:),param_log_glnb(2,:))
+text (1,1,['\rho  ' num2str(coef_log_glnb(1,2))])
+xlabel ('prt')
+ylabel ('rna')
+
+subplot (142)
+scatter (param_log_glnb(1,:),param_log_glnb(4,:))
+text (1,1,['\rho  ' num2str(coef_log_glnb(1,3))])
+xlabel ('prt')
+ylabel ('dna')
+
+subplot (143)
+scatter (param_log_glnb(1,:),param_log_glnb(6,:))
+text (1,1,['\rho  ' num2str(coef_log_glnb(1,4))])
+xlabel ('prt')
+ylabel ('asp')
+
+subplot (144)
+scatter (param_log_glnb(1,:),param_log_glnb(10,:))
+text (1,1,['\rho  ' num2str(coef_log_glnb(1,5))])
+xlabel ('prt')
+ylabel ('glc')
+legend ('glnb')
+```
+![corr log glnb](figures/corr2.jpg)
+
+```matlab
+coef_log_glnk = corrcoef (param_log_glnk(row,:)');
+
+subplot (141)
+scatter (param_log_glnk(1,:),param_log_glnk(2,:))
+text (1,1,['\rho  ' num2str(coef_log_glnk(1,2))])
+xlabel ('prt')
+ylabel ('rna')
+
+subplot (142)
+scatter (param_log_glnk(1,:),param_log_glnk(4,:))
+text (1,1,['\rho  ' num2str(coef_log_glnk(1,3))])
+xlabel ('prt')
+ylabel ('dna')
+
+subplot (143)
+scatter (param_log_glnk(1,:),param_log_glnk(6,:))
+text (1,1,['\rho  ' num2str(coef_log_glnk(1,4))])
+xlabel ('prt')
+ylabel ('asp')
+
+subplot (144)
+scatter (param_log_glnk(1,:),param_log_glnk(10,:))
+text (1,1,['\rho  ' num2str(coef_log_glnk(1,5))])
+xlabel ('prt')
+ylabel ('glc')
+legend ('glnk')
+```
+
+![corr log glnk](figures/corr3.jpg)
+
+
+
+
+
+
+
+
 
 
 

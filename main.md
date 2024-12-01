@@ -265,12 +265,6 @@ xlabel ('wavenumber/cm^{-1}')
 ![peakComponents_log_wt_glnb_glnk](figures/perc1.jpg)
 
 
-
-
-
-
-
-
 ```matlab
 A = [];
 cvx_begin
@@ -305,6 +299,69 @@ title ('N run-out')
 ```
 ![fitting log wt glnb glnk](figures/fit2.jpg).
 ![meanComponents_ro_wt_glnb_glnk](figures/bar2.jpg)
+
+```matlab
+
+perc_ro_wt = tbl_ele_adj.*param_ro_mean(:,1)';
+perc_ro_wt(:,16) = abs(tbl_ele_adj*param_ro_mean(:,1)-mean(ro_wt,2));
+perc_ro_wt = perc_ro_wt([peak_position],:);
+for n = 1:10
+perc_ro_wt(n,:) = perc_ro_wt(n,:)./sum(perc_ro_wt(n,:));
+end
+perc_ro_wt = perc_ro_wt'.*y_scale;
+subplot (311)
+plot (x,mean(ro_wt,2))
+hold on
+a = bar (x(peak_position),perc_ro_wt,'stacked');
+colors = hot(16);
+for i = 1:length(a)
+a(i).FaceColor = colors(i, :);
+a(i).FaceAlpha = 0.3;
+end
+ylabel('wt')
+legend ('', 'prt', 'rna' ,'gsh' ,'dna' ,'anp' ,'asp' ,'gln' ,'unp' ,'gnp' ,'glc', 'val' ,'fbp' ,'glu' ,'lipid', 'nad','error')
+perc_ro_glnb = tbl_ele_adj.*param_ro_mean(:,2)';
+perc_ro_glnb(:,16) = abs(tbl_ele_adj*param_ro_mean(:,2)-mean(ro_glnb,2));
+perc_ro_glnb = perc_ro_glnb([peak_position],:);
+for n = 1:10
+perc_ro_glnb(n,:) = perc_ro_glnb(n,:)./sum(perc_ro_glnb(n,:));
+end
+perc_ro_glnb = perc_ro_glnb'.*y_scale;
+subplot (312)
+plot (x,mean(ro_glnb,2))
+hold on
+a = bar (x(peak_position),perc_ro_glnb,'stacked');
+colors = hot(16);
+for i = 1:length(a)
+a(i).FaceColor = colors(i, :);
+a(i).FaceAlpha = 0.3;
+end
+ylabel('glnb')
+legend ('', 'prt', 'rna' ,'gsh' ,'dna' ,'anp' ,'asp' ,'gln' ,'unp' ,'gnp' ,'glc', 'val' ,'fbp' ,'glu' ,'lipid', 'nad','error')
+
+perc_ro_glnk = tbl_ele_adj.*param_ro_mean(:,3)';
+perc_ro_glnk(:,16) = abs(tbl_ele_adj*param_ro_mean(:,3)-mean(ro_glnb,2));
+perc_ro_glnk = perc_ro_glnk([peak_position],:);
+for n = 1:10
+perc_ro_glnk(n,:) = perc_ro_glnk(n,:)./sum(perc_ro_glnk(n,:));
+end
+perc_ro_glnk = perc_ro_glnk'.*y_scale;
+subplot (313)
+plot (x,mean(ro_glnk,2))
+hold on
+a = bar (x(peak_position),perc_ro_glnk,'stacked');
+colors = hot(16);
+for i = 1:length(a)
+a(i).FaceColor = colors(i, :);
+a(i).FaceAlpha = 0.3;
+end
+ylabel('glnk')
+legend ('', 'prt', 'rna' ,'gsh' ,'dna' ,'anp' ,'asp' ,'gln' ,'unp' ,'gnp' ,'glc', 'val' ,'fbp' ,'glu' ,'lipid', 'nad','error')
+xlabel ('wavenumber/cm^{-1}')
+title ('N run-out')
+```
+![peakComponents_run-out_wt_glnb_glnk](figures/perc2.jpg)
+
 
 ```matlab
 A = [];
@@ -400,7 +457,7 @@ title ('N upshift')
 ```matlab
 % glcose increase in nitrogen insufficiency; (carbon accumulation)
 % gsh, anp not detected in gutnick medium with ammonium chloride than that in LB;
-% no signficant changes in wt glnb glnk components;
+% no signficant changes of components between wt, glnb, glnk ;
 % asp increase in nitrogen starvation
 ```
 

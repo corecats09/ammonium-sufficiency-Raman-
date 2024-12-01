@@ -870,11 +870,280 @@ legend ('glnk')
 
 ![corr log glnk](figures/corr3.jpg)
 
+```matlab
 
+coef_ro_wt = corrcoef (param_ro_wt(row,:)');
 
+subplot (141)
+scatter (param_ro_wt(1,:),param_ro_wt(2,:))
+text (1,1,['\rho  ' num2str(coef_ro_wt(1,2))])
+xlabel ('prt')
+ylabel ('rna')
 
+subplot (142)
+scatter (param_ro_wt(1,:),param_ro_wt(4,:))
+text (1,1,['\rho  ' num2str(coef_ro_wt(1,3))])
+xlabel ('prt')
+ylabel ('dna')
 
+subplot (143)
+scatter (param_ro_wt(1,:),param_ro_wt(6,:))
+text (1,1,['\rho  ' num2str(coef_ro_wt(1,4))])
+xlabel ('prt')
+ylabel ('asp')
 
+subplot (144)
+scatter (param_ro_wt(1,:),param_ro_wt(10,:))
+text (1,1,['\rho  ' num2str(coef_ro_wt(1,5))])
+xlabel ('prt')
+ylabel ('glc')
+legend ('wt')
+```
+![corr ro glnk](figures/corr4.jpg)
+
+```matlab
+coef_ro_glnb = corrcoef (param_ro_glnb(row,:)');
+
+subplot (141)
+scatter (param_ro_glnb(1,:),param_ro_glnb(2,:))
+text (1,1,['\rho  ' num2str(coef_ro_glnb(1,2))])
+xlabel ('prt')
+ylabel ('rna')
+
+subplot (142)
+scatter (param_ro_glnb(1,:),param_ro_glnb(4,:))
+text (1,1,['\rho  ' num2str(coef_ro_glnb(1,3))])
+xlabel ('prt')
+ylabel ('dna')
+
+subplot (143)
+scatter (param_ro_glnb(1,:),param_ro_glnb(6,:))
+text (1,1,['\rho  ' num2str(coef_ro_glnb(1,4))])
+xlabel ('prt')
+ylabel ('asp')
+
+subplot (144)
+scatter (param_ro_glnb(1,:),param_ro_glnb(10,:))
+text (1,1,['\rho  ' num2str(coef_ro_glnb(1,5))])
+xlabel ('prt')
+ylabel ('glc')
+legend ('glnb')
+```
+![corr ro glnb](figures/corr5.jpg)
+
+```matlab
+coef_ro_glnk = corrcoef (param_ro_glnk(row,:)');
+
+subplot (141)
+scatter (param_ro_glnk(1,:),param_ro_glnk(2,:))
+text (1,1,['\rho  ' num2str(coef_ro_glnk(1,2))])
+xlabel ('prt')
+ylabel ('rna')
+
+subplot (142)
+scatter (param_ro_glnk(1,:),param_ro_glnk(4,:))
+text (1,1,['\rho  ' num2str(coef_ro_glnk(1,3))])
+xlabel ('prt')
+ylabel ('dna')
+
+subplot (143)
+scatter (param_ro_glnk(1,:),param_ro_glnk(6,:))
+text (1,1,['\rho  ' num2str(coef_ro_glnk(1,4))])
+xlabel ('prt')
+ylabel ('asp')
+
+subplot (144)
+scatter (param_ro_glnk(1,:),param_ro_glnk(10,:))
+text (1,1,['\rho  ' num2str(coef_ro_glnk(1,5))])
+xlabel ('prt')
+ylabel ('glc')
+legend ('glnk')
+```
+![corr ro glnk](figures/corr6.jpg)
+
+```matlab
+coef_sta_wt = corrcoef (param_sta_wt(row,:)');
+
+subplot (141)
+scatter (param_sta_wt(1,:),param_sta_wt(2,:))
+text (1,1,['\rho  ' num2str(coef_sta_wt(1,2))])
+xlabel ('prt')
+ylabel ('rna')
+
+subplot (142)
+scatter (param_sta_wt(1,:),param_sta_wt(4,:))
+text (1,1,['\rho  ' num2str(coef_sta_wt(1,3))])
+xlabel ('prt')
+ylabel ('dna')
+
+subplot (143)
+scatter (param_sta_wt(1,:),param_sta_wt(6,:))
+text (1,1,['\rho  ' num2str(coef_sta_wt(1,4))])
+xlabel ('prt')
+ylabel ('asp')
+
+subplot (144)
+scatter (param_sta_wt(1,:),param_sta_wt(10,:))
+text (1,1,['\rho  ' num2str(coef_sta_wt(1,5))])
+xlabel ('prt')
+ylabel ('glc')
+legend ('wt')
+```
+![corr sta wt](figures/corr7.jpg)
+
+```matlab
+coef_sta_glnb = corrcoef (param_sta_glnb(row,:)');
+
+subplot (141)
+scatter (param_sta_glnb(1,:),param_sta_glnb(2,:))
+text (1,1,['\rho  ' num2str(coef_sta_glnb(1,2))])
+xlabel ('prt')
+ylabel ('rna')
+
+subplot (142)
+scatter (param_sta_glnb(1,:),param_sta_glnb(4,:))
+text (1,1,['\rho  ' num2str(coef_sta_glnb(1,3))])
+xlabel ('prt')
+ylabel ('dna')
+
+subplot (143)
+scatter (param_sta_glnb(1,:),param_sta_glnb(6,:))
+text (1,1,['\rho  ' num2str(coef_sta_glnb(1,4))])
+xlabel ('prt')
+ylabel ('asp')
+
+subplot (144)
+scatter (param_sta_glnb(1,:),param_sta_glnb(10,:))
+text (1,1,['\rho  ' num2str(coef_sta_glnb(1,5))])
+xlabel ('prt')
+ylabel ('glc')
+legend ('glnb')
+```
+![corr sta glnb](figures/corr8.jpg)
+
+```matlab
+
+coef_sta_glnk = corrcoef (param_sta_glnk(row,:)');
+
+subplot (141)
+scatter (param_sta_glnk(1,:),param_sta_glnk(2,:))
+text (1,1,['\rho  ' num2str(coef_sta_glnk(1,2))])
+xlabel ('prt')
+ylabel ('rna')
+
+subplot (142)
+scatter (param_sta_glnk(1,:),param_sta_glnk(4,:))
+text (1,1,['\rho  ' num2str(coef_sta_glnk(1,3))])
+xlabel ('prt')
+ylabel ('dna')
+
+subplot (143)
+scatter (param_sta_glnk(1,:),param_sta_glnk(6,:))
+text (1,1,['\rho  ' num2str(coef_sta_glnk(1,4))])
+xlabel ('prt')
+ylabel ('asp')
+
+subplot (144)
+scatter (param_sta_glnk(1,:),param_sta_glnk(10,:))
+text (1,1,['\rho  ' num2str(coef_sta_glnk(1,5))])
+xlabel ('prt')
+ylabel ('glc')
+legend ('glnk')
+```
+![corr sta glnk](figures/corr9.jpg)
+
+```matlab
+
+coef_upsft_wt = corrcoef (param_upsft_wt(row,:)');
+
+subplot (141)
+scatter (param_upsft_wt(1,:),param_upsft_wt(2,:))
+text (1,1,['\rho  ' num2str(coef_upsft_wt(1,2))])
+xlabel ('prt')
+ylabel ('rna')
+
+subplot (142)
+scatter (param_upsft_wt(1,:),param_upsft_wt(4,:))
+text (1,1,['\rho  ' num2str(coef_upsft_wt(1,3))])
+xlabel ('prt')
+ylabel ('dna')
+
+subplot (143)
+scatter (param_upsft_wt(1,:),param_upsft_wt(6,:))
+text (1,1,['\rho  ' num2str(coef_upsft_wt(1,4))])
+xlabel ('prt')
+ylabel ('asp')
+
+subplot (144)
+scatter (param_upsft_wt(1,:),param_upsft_wt(10,:))
+text (1,1,['\rho  ' num2str(coef_upsft_wt(1,5))])
+xlabel ('prt')
+ylabel ('glc')
+legend ('wt')
+```
+![corr upsft wt](figures/corr10.jpg)
+
+```matlab
+
+coef_upsft_glnb = corrcoef (param_upsft_glnb(row,:)');
+
+subplot (141)
+scatter (param_upsft_glnb(1,:),param_upsft_glnb(2,:))
+text (1,1,['\rho  ' num2str(coef_upsft_glnb(1,2))])
+xlabel ('prt')
+ylabel ('rna')
+
+subplot (142)
+scatter (param_upsft_glnb(1,:),param_upsft_glnb(4,:))
+text (1,1,['\rho  ' num2str(coef_upsft_glnb(1,3))])
+xlabel ('prt')
+ylabel ('dna')
+
+subplot (143)
+scatter (param_upsft_glnb(1,:),param_upsft_glnb(6,:))
+text (1,1,['\rho  ' num2str(coef_upsft_glnb(1,4))])
+xlabel ('prt')
+ylabel ('asp')
+
+subplot (144)
+scatter (param_upsft_glnb(1,:),param_upsft_glnb(10,:))
+text (1,1,['\rho  ' num2str(coef_upsft_glnb(1,5))])
+xlabel ('prt')
+ylabel ('glc')
+legend ('glnb')
+```
+![corr upsft glnb](figures/corr11.jpg)
+
+```matlab
+
+coef_upsft_glnk = corrcoef (param_upsft_glnk(row,:)');
+
+subplot (141)
+scatter (param_upsft_glnk(1,:),param_upsft_glnk(2,:))
+text (1,1,['\rho  ' num2str(coef_upsft_glnk(1,2))])
+xlabel ('prt')
+ylabel ('rna')
+
+subplot (142)
+scatter (param_upsft_glnk(1,:),param_upsft_glnk(4,:))
+text (1,1,['\rho  ' num2str(coef_upsft_glnk(1,3))])
+xlabel ('prt')
+ylabel ('dna')
+
+subplot (143)
+scatter (param_upsft_glnk(1,:),param_upsft_glnk(6,:))
+text (1,1,['\rho  ' num2str(coef_upsft_glnk(1,4))])
+xlabel ('prt')
+ylabel ('asp')
+
+subplot (144)
+scatter (param_upsft_glnk(1,:),param_upsft_glnk(10,:))
+text (1,1,['\rho  ' num2str(coef_upsft_glnk(1,5))])
+xlabel ('prt')
+ylabel ('glc')
+legend ('glnk')
+```
+![corr upsft glnk](figures/corr12.jpg)
 
 
 

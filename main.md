@@ -20,7 +20,7 @@ ylabel('intensity/counts')
 legend('wt','\Deltaglnb','\Deltaglnk')
 legend('wt(84)','\Deltaglnb(83)','\Deltaglnk(78)')
 % mean spectrum of the samples(number),
-title('in the condition of ammonium sufficiency, exponential growth')
+title('N replete')
 ```
 ![meanSpectrum_log_wt_glnb_glnk](figures/mean1.jpg)
 
@@ -34,7 +34,7 @@ ylabel('intensity/counts')
 legend('wt','\Deltaglnb','\Deltaglnk')
 legend('wt(76)','\Deltaglnb(88)','\Deltaglnk(88)')
 % mean spectrum of the samples(number),
-title('in the condition of ammonium running out')
+title('N running out')
 ```
 ![meanSpectrum_runout_wt_glnb_glnk](figures/mean2.jpg)
 ```matlab
@@ -47,7 +47,7 @@ ylabel('intensity/counts')
 legend('wt','\Deltaglnb','\Deltaglnk')
 legend('wt(90)','\Deltaglnb(71)','\Deltaglnk(85)')
 % mean spectrum of the samples(number),
-title('in the condition of ammonium starvation')
+title('N starved')
 
 ```
 ![meanSpectrum_sta_wt_glnb_glnk](figures/mean3.jpg)
@@ -62,7 +62,7 @@ ylabel('intensity/counts')
 legend('wt','\Deltaglnb','\Deltaglnk')
 legend('wt(85)','\Deltaglnb(80)','\Deltaglnk(84)')
 % mean spectrum of the samples(number),
-title('in the condition of ammonium up-shift')
+title('N up shift')
 ```
 ![meanSpectrum_upsft_wt_glnb_glnk](figures/mean4.jpg)
 
